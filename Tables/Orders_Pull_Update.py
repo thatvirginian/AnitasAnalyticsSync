@@ -19,6 +19,7 @@ logging.basicConfig(
 
 
 def run_order_update(target_date=None):
+    print(">>> RUN_ORDER_UPDATE ENTERED <<<")
     """
     Orchestrates pulling orders from Toast API and pushing to Azure Postgres.
     Now optimized with SQLAlchemy for stable Azure performance.
