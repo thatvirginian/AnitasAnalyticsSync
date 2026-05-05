@@ -23,4 +23,4 @@ jobs:
           context: .
           push: true
           # Replace 'your-username' and 'your-repo' with your actual Docker Hub info
-          tags: your-username/your-repo:latest
+          tags: controlanalystanitas/anitasanalytics:latest
