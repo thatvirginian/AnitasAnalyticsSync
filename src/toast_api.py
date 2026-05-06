@@ -94,7 +94,7 @@ class ToastAPI:
         expires_in = token_data.get("expiresIn", 86400)
 
         now = time.time()
-        self.token_expiry = now + expires_in - 3600  # 1-hour safety buffer
+        self.token_expiry = now + expires_in - 59  # 1-hour safety buffer
 
         self._save_token_to_db(created_at=now)
         return self.token
