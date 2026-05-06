@@ -2,7 +2,7 @@ name: Build and Push to Docker Hub
 
 on:
   push:
-    branches: [ "main" ]  # Runs every time you push to the main branch
+    branches: [ "pause" ]  # Runs every time you push to the main branch
 
 jobs:
   build-and-push:
