@@ -18,3 +18,6 @@ openpyxl       # Required for pandas to export/read Excel files
 
 #TimeZone
 pytz
+
+#Azure
+azure-functions
