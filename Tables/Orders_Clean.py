@@ -90,7 +90,8 @@ def upsert_orders(conn, orders_list):
                 s_guid = sel.get('guid')
                 item_ref = sel.get('item') or {}
                 sales_cat = sel.get('salesCategory') or {}
-
+                item_group_ref = sel.get('itemGroup') or {}
+                
                 tier3_items.append({
                     "selection_guid": s_guid,
                     "check_guid": c_guid,
@@ -104,7 +105,8 @@ def upsert_orders(conn, orders_list):
                     "voided": sel.get('voided', False),
                     "fulfillment_status": sel.get('fulfillmentStatus'),
                     "plu": sel.get('plu'),
-                    "sales_category_guid": sales_cat.get('guid')
+                    "sales_category_guid": sales_cat.get('guid'),
+                    "item_group_guid": item_group_ref.get('guid')
                 })
                 stats["items_added"] += 1
 
