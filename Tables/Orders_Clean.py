@@ -170,12 +170,13 @@ def upsert_orders(conn, orders_list):
                 INSERT INTO order_items (
                     selection_guid, check_guid, item_guid, item_name, quantity,
                     unit_price, net_price, deferred, tax_amount, voided,
-                    fulfillment_status, plu, sales_category_guid
+                    fulfillment_status, plu, sales_category_guid, item_group_guid
                 ) VALUES (
                     :selection_guid, :check_guid, :item_guid, :item_name, :quantity,
                     :unit_price, :net_price, :deferred, :tax_amount, :voided,
-                    :fulfillment_status, :plu, :sales_category_guid
-                ) ON CONFLICT (selection_guid) DO NOTHING;
+                    :fulfillment_status, :plu, :sales_category_guid, :item_group_guid
+                ) ON CONFLICT (selection_guid) DO UPDATE SET 
+                    item_group_guid = EXCLUDED.item_group_guid;
             """), tier3_items)
 
         if tier4_mods:
